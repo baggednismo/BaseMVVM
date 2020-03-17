@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Buttons -->
+    <string name="btn_ok">OK</string>
+
+    <!-- Messages -->
+    <string name="msg_pleasewait">Please wait…</string>
+
+    <!-- Network Errors -->
+    <string name="error.network.no_internet">Internet connection is not found. Please try again.
+    </string>
+    <string name="error.network.session_expire">Session expired. Please log in again.</string>
+    <string name="error.network.connection_error">Connection error. Please try again later.</string>
+    <!--Client side errors-->
+    <!-- 408 -->
+    <string name="error.network.connection_timeout">Connection timed out. Please try again later.
+    </string>
+    <!--401 or 407 -->
+    <string name="error.network.unauthorized">Login required to perform current request. Please
+        login.
+    </string>
+    <!--413 or 414-->
+    <string name="error.network.too_long_request">Request entry too long. Please consult your
+        service provider.
+    </string>
+    <!--For other client errors-->
+    <!--<string name="error.network.client_error">There has been an error while processing your request. Please try again or consult your service provider.</string>-->
+    <string name="error.network.client_error">Unknown error occurred.</string>
+    <!--For 504,598 and 599-->
+    <string name="error.network.server_timeout">Server is not responding. Please contact your
+        service provider.
+    </string>
+    <!--For server errors-->
+    <string name="error.network.server_errors">There has been a server error. Please try again or
+        consult your service provider.
+    </string>
+
+    <!--For app error like parsing error-->
+    <string name="error.network.app_error">There has been an error while processing your request.
+        Please try again.
+    </string>
+
+    <!--For error when host not found-->
+    <string name="error_unknown_host">Unable to find the host. Please try changing the URL.
+    </string>
+    <!--For error like connection failure to server-->
+    <string name="error_connection_failed">Error connecting to server. Connection to the server has
+        failed.
+    </string>
+
+    <!--For error message when IllegalStateException found or bad response from server-->
+    <string name="error_invalid_response_server">There has been a server error. Received invalid
+        response from server.
+    </string>
+
+</resources>

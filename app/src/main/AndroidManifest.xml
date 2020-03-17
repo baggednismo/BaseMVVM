@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.devinmartinolich.basemvvm">
+
+    <uses-permission android:name="android.permission.CAMERA" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET" android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" android:required="false"/>
+    <uses-feature android:name="android.hardware.fingerprint" android:required="false"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <supports-screens android:largeScreens="true" android:xlargeScreens="true"/>
+
+    <application
+        android:name=".BaseMVVM"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        android:theme="@style/AppTheme">
+        <activity android:name=".view.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.devinmartinolich.basemvvm.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- This is how Fabric Crashlytics gets disabled in DEBUG -->
+        <meta-data
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="${enableCrashReporting}" />
+        <meta-data
+            android:name="firebase_analytics_collection_deactivated"
+            android:value="${disableAnalytics}"/>
+
+    </application>
+
+</manifest>

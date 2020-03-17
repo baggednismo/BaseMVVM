@@ -1,0 +1,121 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion appCompileSdkVersion
+    buildToolsVersion appBuildToolsVersion
+
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        applicationId "com.devinmartinolich.basemvvm"
+        minSdkVersion appMinSdkVersion
+        targetSdkVersion appTagetedSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        debug {
+            manifestPlaceholders.enableCrashReporting = "false"
+            manifestPlaceholders.disableAnalytics = "false"
+
+            buildConfigField "String", "API_DOMAIN", '"https://testing.com/"'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders.enableCrashReporting = "true"
+            manifestPlaceholders.disableAnalytics = "false"
+
+            buildConfigField "String", "API_DOMAIN", '"https://production.com/"'
+        }
+    }
+
+    productFlavors {
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'commons-codec:commons-codec:20041127.091804'
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    implementation 'joda-time:joda-time:2.9.9'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    // Adding Kotlin for tests and most likely future Kotlin development
+    implementation "androidx.core:core-ktx:1.2.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+
+    testImplementation 'junit:junit:4.13'
+    // Additional testing tools
+    testImplementation 'androidx.test:core:1.2.0'
+//    testImplementation 'androidx.test:runner:1.2.0'
+//    testImplementation 'androidx.test.ext:junit:1.2.0'
+//    testImplementation 'androidx.test.ext:truth:1.2.0'
+//    testImplementation 'androidx.test.espresso:espresso-core:3.2.1'
+//    testImplementation 'androidx.test.espresso:espresso-intents:3.2.1'
+    testImplementation 'org.mockito:mockito-core:1.10.19'
+    testImplementation 'org.robolectric:robolectric:4.3.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.1'
+
+    // AndroidX replaces traditional support libs
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.exifinterface:exifinterface:1.1.0'
+
+    // AndroidX missed the BiomentricManager...
+    implementation'androidx.biometric:biometric:1.0.1'
+
+    // Firebase Crashlytics
+    implementation('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') { transitive = true }
+
+    // Firebase Analytics
+    implementation 'com.google.firebase:firebase-analytics:17.2.3'
+    implementation 'org.jetbrains:annotations:15.0'
+
+    // Retrofit
+    implementation 'com.squareup.okhttp3:okhttp:4.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    // This is for simple string responses like from the HMAC authentication
+//    implementation 'com.squareup.retrofit2:converter-scalars:2.7.1'
+    // This is for XML post/response
+//    implementation 'com.squareup.retrofit2:converter-simplexml:2.7.1'
+}
+
+// This is required when using converter-simplexml as it will include dependencies we
+// already have in the project. This prevents duplicate class errors.
+//configurations {
+//    implementation {
+//        exclude group: 'stax', module: 'stax-api'
+//        exclude group: 'stax', module: 'stax'
+//        exclude group: 'xpp3', module: 'xpp3'
+//    }
+//}
+
+// Both are needed for Crashlytics
+//apply plugin: 'io.fabric'
+//apply plugin: 'com.google.gms.google-services'
+// Kotlin plug required for unit tests written in Kotlin
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'

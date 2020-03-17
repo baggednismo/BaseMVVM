@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">BaseMVVM</string>
+
+    <!-- Messages -->
+    <string name="error">Error</string>
+    <string name="error_no_pdf_viewer_title">No PDF reader found</string>
+    <string name="error_no_pdf_viewer_body">In order to view PDF files, a PDF reader must be installed on your device.</string>
+
+    <!-- Biometrics -->
+    <string name="biometrics_login_title">Biometric Login</string>
+    <string name="biometrics_login_body">Log in using your fingerprint</string>
+    <string name="biometrics_login_negative_btn">Use manual credentials</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_success_title">Success!</string>
+    <string name="dialog_success_body">Whatever you just did was a success. Apparently we felt the
+        need to show a dialog instead of a snackbar or toast message. Congratulations on this
+        overkill message!</string>
+    <string name="dialog_failure_title">Failure!</string>
+    <string name="dialog_failure_body">Whatever you just did was a complete failure. Apparently we
+        felt the need to show a dialog instead of a snackbar or toast message. Congratulations on
+        this overkill message!</string>
+
+    <!-- Menu -->
+    <string name="menu_about">About…</string>
+
+    <!-- Authentication -->
+    <string name="Auth_Success">Authentication Success</string>
+    <string name="Auth_Failure">User or Pass is incorrect.</string>
+    <string name="Auth_Unknown">There was an error verifying your credentials.</string>
+
+    <!-- Credentials -->
+    <string name="missing_pass_title">Missing Password</string>
+    <string name="missing_pass_body">The password for your account is missing. Once you have entered
+        and logged in for the first time you will be able to use the fingerprint functionality.\n\n
+        Note: Make sure to keep \"Use Fingerprint Authentication\" enabled when logging in.</string>
+
+    <string name="missing_username_title">Missing Username</string>
+    <string name="missing_username_body">The username for your account is missing. Once you have entered
+        and logged in for the first time you will be able to use the fingerprint functionality.\n\n
+        Note: Make sure to keep \"Use Fingerprint Authentication\" enabled when logging in.</string>
+
+    <!-- Buttons -->
+    <string name="btn_login">LOGIN</string>
+
+    <!-- Labels -->
+    <string name="username">Username</string>
+    <string name="forgot_username">forgot username?</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">forgot password?</string>
+    <string name="rememberMe">Remember Username</string>
+    <string name="use_fingerprint">Use Fingerprint Authentication</string>
+
+</resources>
